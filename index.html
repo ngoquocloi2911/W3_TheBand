@@ -7,11 +7,13 @@
     <!-- đường link icon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/icon/band.png">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
     <title>The Band</title>
 </head>
 <body>
     <div id="main">
+        
 
         <!-- Phần header -->
         <div id="header">
@@ -38,12 +40,16 @@
             </ul>
              <!-- end : nav -->
 
-              <!-- begin : Search button -->
-
+              <!-- mobile button -->
+              <di v id="mobile-menu" class="mobile-menu-btn">
+                <i class=" menu-icon ti-menu"></i>
+              </di>
+              
+              <!--  Search button -->
               <div class="search-btn">
                 <i class="search-icon ti-search"></i>
               </div>
-               <!-- enc : Search button -->
+
 
         </div>
 
@@ -74,21 +80,21 @@
                     adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
                 <div class="members-list">
-                    <div class="col-third text-center">
+                    <div class="member-item col-third text-center">
                         <p class="members-name">Name</p>
                         <img src="/assets/img/team/member1.jpg" alt="Name" class="members-img">
                     </div>
                 
                 
                 
-                    <div class="col-third text-center">
+                    <div class="member-item col-third text-center">
                         <p class="members-name">Name</p>
                         <img src="/assets/img/team/member1.jpg" alt="Name" class="members-img">
                     </div>
                 
 
                 
-                    <div class="col-third text-center">
+                    <div class="member-item col-third text-center">
                         <p class="members-name">Name</p>
                         <img src="/assets/img/team/member1.jpg" alt="Name" class="members-img">
                     </div>
@@ -115,8 +121,8 @@
                     </ul>
 
                     <!-- place -->
-                    <div class="row place-list">
-                        <div class=" col col-third">
+                    <div class="row place-list mrt16 ">
+                        <div class=" col col-third s-col-ful mrt16  ">
                             <img src="/assets/img/space/space1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">
@@ -133,7 +139,7 @@
 
                             </div>
                         </div>
-                            <div class="col col-third">
+                            <div class="col col-third s-col-ful mrt16">
                                 <img src="/assets/img/space/paris.jpg" alt="New York" class="place-img">
                                 <div class="place-body">
                                     <h3 class="place-heading">
@@ -150,7 +156,7 @@
     
                                 </div>
                             </div>
-                                <div class="col col-third">
+                                <div class="col col-third s-col-ful  mrt16">
                                     <img src="/assets/img/space/sanfran.jpg" alt="New York" class="place-img">
                                     <div class="place-body">
                                         <h3 class="place-heading">
@@ -187,12 +193,12 @@
                     <div class="row contact-body display-flex">
                         <div class="col col-second contact-info">
                             <p><i class="ti-location-pin">   </i>Chicago, US</p>
-                            <p><i class="ti-mobile">   </i>Phone: +00 151515</p>
-                            <p><i class="ti-email">   </i>Email: mail@mail.com</p>
+                            <p><i class="ti-mobile">   </i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                            <p><i class="ti-email">   </i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
                         </div>
                         <div class="col col-second contact-form">
                             <form action="">
-                                <div class="row display-flex">
+                                <div class="row display-flex s-row-input">
                                     <div class="col col-second  ">
                                         <input type="text" name="" id="" placeholder="Name" required class="form-control">
         
@@ -326,6 +332,74 @@
         modalContainer.addEventListener('click', function(event){
             event.stopPropagation()
         })
+
+
+        // Xử lý nút trên thanh header khi responsive về mobile
+        // Lấy id để thêm vào biến
+        var header = document.getElementById('header');
+
+        // Lấy id mobile-menu để lưu vào biến
+        var mobileMenu = document.getElementById('mobile-menu');
+
+        // gán biến headerheight để tùy chỉnh chiều cao của header
+        var headerheight = header.clientHeight;
+
+        // hành động kích vào nút hiển thị ra cái mình muốn
+        // Đóng ,mở mobile menu
+        mobileMenu.onclick = function(){
+
+            // console.log(header.clientHeight);
+            // dấu === trong js là để so sánh
+            // biến isClose kiểm tra có xem đóng hay k
+            var isClose = header.clientHeight === headerheight;
+            // nếu nó là 46
+            if(isClose){
+                // chuyển height là auto == mở ra
+                header.style.height = 'auto';
+
+            }else
+            // ngược lại chuyển height == 46px đóng lại
+                header.style.height = null;
+        }
+
+        // Tự động đóng khi chọn menu
+
+        // lấy tất cả thẻ a có href là dấu #
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        
+        for( var i=0; i< menuItems.length; i++)
+        {
+            var menuItem =menuItems[i];
+
+            
+
+            
+            // kiểm tra xem thẻ a nào có a chị em liền kề hay không -- 
+            // sau thẻ a là thẻ ul
+            console.log(menuItem.nextElementSibling);
+            
+            // in ra giá trị cần tìm
+            menuItem.onclick = function(event){
+                // kiểm tra xem thẻ a nào có a.chị em liền kề và a.chị e liền kề đó
+            // chính là subnav thì gán nó vào biến menu cha
+            // nếu click vào thì this là chính nó
+            var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+
+                // nếu không phải cha
+                if(isParentMenu){
+
+                    event.preventDefault();
+                    
+                }else{
+                    
+                    header.style.height =null;
+                  
+                }
+                
+                
+            }
+        }
+
     </script>
     
 </body>

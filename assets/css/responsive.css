@@ -1,0 +1,150 @@
+
+/* pc */
+@media (min-width:1024px){
+    
+}
+
+
+/* Tablet and mobile */
+
+@media (max-width:1023px){
+    .btn{
+        padding: 16px 21px;
+    }
+    .contact-info {
+        font-size: 20px;
+        line-height: 2;
+    }
+    .contact-form .form-control {
+        padding: 18px;
+    }
+    #footer .social-list {
+        font-size: 32px;
+    }
+    #footer .social-list a {
+        padding: 0 10px;
+    }
+    #footer .social-note {
+        margin: 20px 0;
+        font-size: 22px;
+    }
+    #footer .social-note a {
+        padding: 18px 4px;
+        display: inline-block;
+    }
+
+}
+
+/* Tablet */
+@media (min-width:740px) and (max-width:1023px){
+
+    
+}
+
+/* Mobile */
+
+@media (max-width:740px){
+
+    #header{
+        overflow: hidden;
+    }
+ 
+    /* hiện cái nút của mobile lên */
+    #header .mobile-menu-btn{
+        display: block;
+    }
+ 
+    /* ẩn nút tìm kiếm đi */
+ #header .search-btn{
+    display: none;
+ }
+    /* đi theo từng khối, cho nó là block để tự động xuống hàng */
+    #nav {
+        display: block;
+    }
+   
+   /* đi theo từng khối, cho nó bằng block để nó tự động xuống hàng */
+    #nav > li {
+        display: block;
+    }
+
+    /* lấy ra thằng con li đầu triên  */
+    #nav > li:first-child{
+        display: inline-block;
+    }
+
+    #nav .subnav{
+        position: initial;
+        background-color: #333;
+        color: #000;
+    }
+
+    #nav .subnav a{
+        color: #fff;
+    }
+
+    #nav .li a{
+        padding: 1px 24px;
+    }
+
+    #nav .subnav li{
+        background-color: #333;
+        color: #fff;
+    }
+
+    
+    #nav .subnav a:active{
+        background-color: #ccc;  
+        color: #000;
+    }
+
+    #content .members-list{
+        display: block;
+        
+    }
+
+    #content .col-third {
+        width: 100%;
+        margin-top: 16px;
+}
+    
+
+    #content .members-img{
+        width: 60%;
+    }
+    
+    #content .about-text {
+        line-height: 1.4;
+    }
+    .s-col-ful{
+        width: 100%;
+    }
+
+    #content .place-list{
+        display: block;
+    }
+
+    #contact .contact-body{
+        display: block !important;
+    }
+
+    #contact .col-second {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    #contact .s-row-input{
+        display: block !important;
+    }
+    .btn{
+        width: 100%;
+    }
+
+}
+
+
+
+    
+
+
+

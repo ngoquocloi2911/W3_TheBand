@@ -21,8 +21,7 @@ html{
 3.màu sắc
 4. kiểu dáng, kiểu chữ, hình tròn, vuông,...) */
 
-/* Common */
-
+/* Common nơi khai báo các class để dùng lại nhiều lần */
 .text-center{
     text-align: center !important;
 }
@@ -39,6 +38,7 @@ html{
     /* vị trí của khối nằm trong giá trị mà chúng ta làm */
     display: inline-block;
     margin-top: 16px;
+    
     
 
 }
@@ -78,18 +78,19 @@ html{
 
 
 .mrt8{
-    margin-top: 8px;
+    margin-top: 8px !important;;
 }
 .mrt16{
-    margin-top: 16px;
+    margin-top: 16px !important;;
 }
 
 
-/* main */
+/* main -- phần làm trang chính */
 #main  {
     
 }
-/* Thêm 1 class clear ở dưới khối , loại bỏ sự dư thừa khi */
+/* Thêm 1 class clear ở dưới khối , loại bỏ sự dư thừa khi 
+ phần header*/
 
 #header{
     height: 46px;
@@ -102,14 +103,16 @@ html{
     /* header chèn lên trên-- khi kéo xuống k bị đè */
     z-index: 1;
     
+    
 
 }
+/* nav */
 #nav{
     /* kích thước thành 1 khối bao quanh nó */
     display: inline-block;
 }
 
-#nav li{
+#nav > li{
     display: inline-block;
     /* khối cha cố định */
     position: relative;
@@ -124,7 +127,7 @@ html{
 }
 /* tất cả thẻ con đều chịu ảnh hưởng */
 #nav li a{
-    display: inline-block;
+    display: block;
     padding: 0 20px;
     line-height: 46px;
     text-decoration: none; 
@@ -169,15 +172,31 @@ html{
     font-size: 12px;
 }
 
+/* nút moblie
+dùng thuộc tính position vào con để hiển nổi nút lên trên k bị bể khi giảm kích thước */
+
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+
+#header .mobile-menu-btn,
 #header .search-btn{
     float: right;
     padding: 0 21px;
 }
+
+#header .menu-icon,
 #header .search-icon{
     color: #fff;
     font-size: 20px;
-    line-height: 46px;
+    line-height: 50px;
 }
+
+
 #header .search-btn:hover{
     background-color: #f44336;
     /* Khi di vào thì sẽ biến thành hình bàn tay 
@@ -185,7 +204,17 @@ html{
     cursor: pointer;
 }
 
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;  
+}
 
+#header .mobile-menu-btn:hover .menu-icon {
+    background-color: #ccc;  
+    color: #000;
+}
+
+
+/* phần slider */
 #slider{
     /* position cha cố định */
     position: relative;
@@ -225,6 +254,7 @@ html{
 
 
 
+/* phần content */
 #content{
 
 }
@@ -232,9 +262,10 @@ html{
 #content .content-section{
     width: 800px;
     /* thuộc tính margin left-right auto để căn giữa */
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 64px 0 108px;
+    padding: 64px 16px 108px;
 }
 #content .section-heading{
     font-size: 30px;
@@ -284,7 +315,9 @@ html{
     
 }
 
-/* tour section */
+/* Phần tour */
+
+/* tour content */
 #content .tour-section{
     background-color: #000;
 }
@@ -324,13 +357,11 @@ padding: 4px;
     margin-top: -2px;
 }
 
+
+/* place list */
 .place-list{
     display: flex;
-    margin-top: 36px;
-
-    
-
-
+    margin-top: 16px;
 }
 
 .place-img{
@@ -347,13 +378,11 @@ padding: 4px;
     font-size: 15px;
     padding: 16px;
     
-
 }
 .place-heading{
     font-size: 15px;
-
-
 }
+
 .place-time{
     padding-top: 16px;
     color: #757577;
@@ -378,9 +407,21 @@ padding: 4px;
     font-weight: 510;
     
 }
+
+.contact-info a{
+    color: #0082f5;
+    opacity: 0.8;
+}
+
+.contact-info a:hover {
+    color: #0528ec;
+    opacity: 1;
+}
+
 .contact-form .form-control{
     width: 100%;
-    padding: 10px;
+    padding: 10px;  
+    border: 1px solid #ccc;
 }
 
 
@@ -391,6 +432,7 @@ padding: 4px;
 }
 .contact-form{
     font-size: 15px;
+    
 }
 
 
@@ -468,6 +510,8 @@ padding: 4px;
     animation: modalFadeIn ease .5s;
     
 }
+
+/* phần header modal */
 .modal-header {
     background-color: #009688;
     height: 130px;
@@ -495,6 +539,8 @@ i.ti-bag {
     letter-spacing: 3;
     letter-spacing: 4px;
 }
+
+/* phần body modal */
 .modal-body {
     padding: 16px;
 }
