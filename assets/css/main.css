@@ -221,7 +221,11 @@ dùng thuộc tính position vào con để hiển nổi nút lên trên k bị 
     margin-top: 46px;
     /* bằng 50% chiều ngang của chính nó */
     padding-top: 50%;
-    background-image: url('/assets/img/slider1.jpg'); 
+    /* file tĩnh 
+    background-image: url('/assets/img/slider1.jpg');*/
+    /* link tương đối */
+    background-image: url('../img/slider1.jpg');
+    
     background-position: top center;
     background-size: cover;
     /*  ảnh không lặp */
@@ -239,17 +243,21 @@ dùng thuộc tính position vào con để hiển nổi nút lên trên k bị 
     /* left:50%;
     transform: translateX(-50%); */
     text-align: center;
+    /*  Thuộc tính bóng văn bản (h-shadow, v-shadow, blur-radius, color */
+    text-shadow: 2px 2px 10px #000;
 }
 
 #slider .text-heading{
     /* Nét đậm nhạt của chữ */
     font-weight: 500;
     font-size: 24px;
+   
 }
 
 #slider .text-description{
     font-size: 15px;
     margin-top: 25px;
+    
 }
 
 
@@ -415,6 +423,7 @@ padding: 4px;
 
 .contact-info a:hover {
     color: #0528ec;
+    /* Độ trong suốt */
     opacity: 1;
 }
 
@@ -505,6 +514,7 @@ padding: 4px;
     width: 900px;
     min-height: 400px;
     position: relative;
+    /* Luôn trừ 2 đâu 32px -- khi thu nhỏ lại */
     max-width: calc(100% - 32px);
     /* Kiểu chuyển động lúc đầu nhanh , lúc sau chậm  thời gian chạy*/
     animation: modalFadeIn ease .5s;
@@ -516,14 +526,18 @@ padding: 4px;
     background-color: #009688;
     height: 130px;
     display: flex;
+    /* Căn giữa chiều dọc */
     align-items: center;
     justify-content: center;
+    /* Căn giữa chiều ngang */
     font-size: 30px;
     color: #fff;
 }
 .modal .modal-close {
     position: absolute;
+    /* Chắc chắn là ở bên phải cùng */
     right: 0;
+    /* Chắc chắn là ở trên cùng */
     top: 0;
     padding: 12px;
     color: #fff;
@@ -532,11 +546,12 @@ padding: 4px;
     opacity: 0.6;
     background-color: #ccc;
     color: #000;
+    /* Thuộc tính khi rê chuột vào con trỏ chuột sẽ đổi sang phương thức bàn tay */
     cursor: pointer;
 }
 
 i.ti-bag {
-    letter-spacing: 3;
+    
     letter-spacing: 4px;
 }
 
@@ -587,13 +602,15 @@ p.need-help a{
 /* Keyframes dùng ho thuộc tính anmation */
 @keyframes modalFadeIn {
     from{
-        /* Di chuyển từ vị trí -200px */
+        /* Di chuyển từ vị trí -200px
+        giảm độ trong suốt từ 0 */
         transform: translateY(-200px);
         opacity: 0;
     }
 
     to{
-        /* xuống vị trí 0 */
+        /* xuống vị trí 0 
+        xuống độ trong suốt 1*/
         transform: translateY(0);
         opacity: 1;
     }

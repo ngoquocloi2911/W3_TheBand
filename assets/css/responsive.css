@@ -1,13 +1,13 @@
 
-/* pc */
-@media (min-width:1024px){
+/* pc  tương ứng với 1024px*/
+@media (min-width:64em){
     
 }
 
 
-/* Tablet and mobile */
+/* Tablet and mobile tương ứng với 1023px */
 
-@media (max-width:1023px){
+@media (max-width:63.9375em){
     .btn{
         padding: 16px 21px;
     }
@@ -35,15 +35,15 @@
 
 }
 
-/* Tablet */
-@media (min-width:740px) and (max-width:1023px){
+/* Tablet tương ứng với 740px và 1023 px */
+@media (min-width:46.25em) and (max-width:63.9375em){
 
     
 }
 
-/* Mobile */
+/* Mobile  tương ứng với 739 px*/
 
-@media (max-width:740px){
+@media (max-width:46.1875em){
 
     #header{
         overflow: hidden;
